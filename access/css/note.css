@@ -119,6 +119,8 @@ body {
   height: 2rem;
   padding: 0 1rem;
 }
+.head .name h5{
+}
 .head .delete i {
   padding: 0 0.5rem;
 }
@@ -135,8 +137,8 @@ body {
 }
 #status .notes .div{
     margin: auto;
-    width: 80%;
-    height: 3rem;
+    width: 90%;
+    height: 5rem;
     background-color: var(--blue);
     margin-bottom: 1rem;
     text-overflow: ellipsis;
