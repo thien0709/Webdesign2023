@@ -54,12 +54,12 @@ body {
   height: 3rem;
   margin-left: 5rem;
 }
-#navbar .user a{
-    text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
+#navbar .user a {
+  text-decoration: none;
+  font-family: "Courier New", Courier, monospace;
 }
-#navbar .user button{
-    padding: .3rem;
+#navbar .user button {
+  padding: 0.3rem;
 }
 #main #content {
   display: flex;
@@ -83,6 +83,7 @@ body {
   padding: 1rem;
 }
 #note {
+  position: relative;
   display: none;
   width: calc(100% - 20rem);
   height: 100%;
@@ -109,9 +110,12 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.head .delete {
+.head .delete,
+.head .create {
   cursor: pointer;
-  display: flex;
+  position: absolute;
+  right: 1rem;
+  display: none;
   justify-content: center;
   align-items: center;
   background-color: var(--white1);
@@ -119,11 +123,12 @@ body {
   height: 2rem;
   padding: 0 1rem;
 }
-.head .delete i {
+.head .delete i,
+.head .create i {
   padding: 0 0.5rem;
 }
 #note .text {
-    margin: auto;
+  margin: auto;
   width: 70rem;
   height: 5rem;
   padding: 1rem;
@@ -133,13 +138,25 @@ body {
 #content #status h1 {
   font-size: 1rem;
 }
-#status .notes .div{
-    margin: auto;
-    width: 80%;
-    height: 3rem;
-    background-color: var(--blue);
-    margin-bottom: 1rem;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding: .5rem ;
+#navbar .user {
+  display: flex;
+  align-items: center;
+}
+#navbar .user h4 {
+  color: var(--orange1);
+  padding: 1rem;
+}
+#content #status .notes .div:hover {
+  cursor: pointer;
+}
+.myNewDiv{
+  cursor: pointer;
+  margin: auto;
+  width: 90%;
+  height: 5rem;
+  background-color: var(--pink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2rem;
+  border-radius: 5px;
 }

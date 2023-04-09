@@ -1,47 +1,57 @@
 // Change text
 function handleInput(event) {
-  // Xử lý sự kiện thay đổi nội dung
   console.log(event.target.innerHTML);
 }
+//Hello user
+const userName = document.querySelector("#navbar .user .logo h4");
+let n = JSON.parse(localStorage.getItem("user"));
+userName.innerHTML = `Hello ${n.username}`;
 //Create new note
 const newNote = document.querySelector("#content #status .icon");
 const note = document.querySelector("#content #note");
-const createDel = document.querySelector("#note .head .delete");
-const noti = document.querySelector("#note .head .delete h6");
-const iconNoti = document.querySelector("#note .head .delete i");
+const notiDel = document.querySelector("#note .head .delete");
+const notiCre = document.querySelector("#note .head .create");
 newNote.addEventListener("click", function () {
   note.style.display = "block";
-  let cr = "fa-solid fa-plus";
-  let del = "fa-solid fa-trash";
-  iconNoti.setAttribute("class", cr);
-  noti.innerHTML = "Create";
+  notiCre.style.display = "flex";
 });
-//Create
+//Create note
 const text = document.querySelector("#note .text p");
 const outText = document.querySelector("#content .notes p");
 const notes = document.querySelector("#content #status .notes");
 const tittle = document.querySelector("#note .head h3");
-createDel.addEventListener("click", function () {
-  let contents = {
-    // author:,
+let userTexts = [];
+notiCre.addEventListener("click", function () {
+  //Them content va user vao mang
+  let userText = {
+    author: n.username,
     content: text.textContent,
   };
-  localStorage.setItem("contents", JSON.stringify(contents));
-  const x = JSON.parse(localStorage.getItem("contents"));
-  let newDiv = document.createElement("div");
-  newDiv.classList.add("div");
-  notes.appendChild(newDiv);
-  let newH1 = document.createElement("h1");
-  newH1.innerText = `${tittle.textContent}`; 
-  newDiv.appendChild(newH1);
-  var newp = document.createElement("p");
-  newp.innerText = `${contents.content}`;
-  newDiv.appendChild(newp);
+  userTexts.push(userText);
+  localStorage.setItem("userTexts", JSON.stringify(userTexts));
+  const x = JSON.parse(localStorage.getItem("userTexts"));
+  //Tao phan tu su dung innerHTML
+  for (let i = 0; i < x.length; i++) {
+    var newElement = `<div class="myNewDiv"> <div class="tittle">
+${tittle.textContent}
+  </div>
+  <div class="content">${x[i].content}</div>`;
+  }
+  notes.innerHTML += newElement;
+  //Remove note
+  const removeText = document.querySelectorAll(".myNewDiv");
+for (let i = 0; i < removeText.length; i++) {
+  removeText[i].addEventListener("click", function () {
+    notiDel.style.display = "flex";
+    notiCre.style.display = "none";
+    notiDel.addEventListener("click",function(){
+      removeText[i].remove();
+    return;
+    })
+    
+  });
+}
 });
-const arrText = [
-  {
-    id: 1,
-    author: "thien123",
-    content: "",
-  },
-];
+
+//Create by 
+
