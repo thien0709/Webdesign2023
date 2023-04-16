@@ -2,13 +2,11 @@
 const btnLogin = document.querySelector("#main")
 btnLogin.addEventListener("click",
 function onSignIn(googleUser) {
-    // Lấy ID token và thông tin hồ sơ cơ bản của người dùng
-    var id_token = googleUser.getAuthResponse().id_token;
-    var profile = googleUser.getBasicProfile();
-  
-    // Gửi ID token đến máy chủ của bạn để xác minh
-    // Bạn có thể sử dụng một yêu cầu AJAX hoặc một đơn gửi để làm điều này
-    // Sau khi xác minh, bạn có thể tạo một phiên cho người dùng trên máy chủ của mình
-  }
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
   );
   
