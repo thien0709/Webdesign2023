@@ -13,12 +13,3 @@ function onSignIn(googleUser) {
   // Redirect to your application's main page
   window.location.href = "main.html";
 }
-// Get the user's information from localStorage
-var name1= localStorage.getItem("name");
-var email1 = localStorage.getItem("email");
-var imageUrl1 = localStorage.getItem("imageUrl");
-
-// Display the user's information on the page
-document.getElementById("user-name").innerHTML = name1;
-document.getElementById("user-email").innerHTML = email1;
-document.getElementById("user-image").src = imageUrl1;
