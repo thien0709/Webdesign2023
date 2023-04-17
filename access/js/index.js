@@ -1,14 +1,24 @@
 function onSignIn(googleUser) {
-  // Useful data for your client-side scripts:
+  // Get the user's profile information
   var profile = googleUser.getBasicProfile();
-  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-  console.log('Full Name: ' + profile.getName());
-  console.log('Given Name: ' + profile.getGivenName());
-  console.log('Family Name: ' + profile.getFamilyName());
-  console.log("Image URL: " + profile.getImageUrl());
-  console.log("Email: " + profile.getEmail());
+  var name = profile.getName();
+  var email = profile.getEmail();
+  var imageUrl = profile.getImageUrl();
 
-  // The ID token you need to pass to your backend:
-  var id_token = googleUser.getAuthResponse().id_token;
-  console.log("ID Token: " + id_token);
-};
+  // Save the user's information to localStorage
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  localStorage.setItem("imageUrl", imageUrl);
+
+  // Redirect to your application's main page
+  window.location.href = "main.html";
+}
+// Get the user's information from localStorage
+var name1= localStorage.getItem("name");
+var email1 = localStorage.getItem("email");
+var imageUrl1 = localStorage.getItem("imageUrl");
+
+// Display the user's information on the page
+document.getElementById("user-name").innerHTML = name1;
+document.getElementById("user-email").innerHTML = email1;
+document.getElementById("user-image").src = imageUrl1;
