@@ -25,19 +25,3 @@
       align-items: center;
       min-height: 90%;
   }
-  #main{
-    cursor: pointer;
-      width: 20rem;
-      height: 5rem;
-      background-color: var(--white);
-      border-radius: 2rem;
-      padding: .5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 14px;
-  }
-  #main img{
-    padding: 0 .7rem;
-  }
