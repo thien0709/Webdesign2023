@@ -11,9 +11,11 @@ const newNote = document.querySelector("#content #status .icon");
 const note = document.querySelector("#content #note");
 const notiDel = document.querySelector("#note .head .delete");
 const notiCre = document.querySelector("#note .head .create");
+const at = document.querySelector(".head .name h5");
 newNote.addEventListener("click", function () {
   note.style.display = "block";
   notiCre.style.display = "flex";
+  at.innerHTML = '';
 });
 //Create note
 const text = document.querySelector("#note .text p");
@@ -22,10 +24,19 @@ const notes = document.querySelector("#content #status .notes");
 const tittle = document.querySelector("#note .head h3");
 let userTexts = [];
 notiCre.addEventListener("click", function () {
+  let time = new Date();
+  let hour = time.getHours();
+  let minute = time.getMinutes();
+  let second = time.getSeconds();
+  let date = time.getDate();
+  let month = time.getMonth();
+  let year = time.getFullYear();
+
   //Them content va user vao mang
   let userText = {
     author: n.username,
     content: text.textContent,
+    at: `${hour} : ${minute} : ${second} ${date}/${month}/${year}`,
   };
   userTexts.push(userText);
   localStorage.setItem("userTexts", JSON.stringify(userTexts));
@@ -42,18 +53,18 @@ ${tittle.textContent}
   notes.innerHTML += newElement;
   //Remove note
   const removeText = document.querySelectorAll(".myNewDiv");
-for (let i = 0; i < removeText.length; i++) {
-  removeText[i].addEventListener("click", function () {
-    notiDel.style.display = "flex";
-    notiCre.style.display = "none";
-    notiDel.addEventListener("click",function(){
-      removeText[i].remove();
-    return;
-    })
-    
-  });
-}
+  for (let i = 0; i < removeText.length; i++) {
+    removeText[i].addEventListener("click", function () {
+      //Create at time by username
+      at.innerHTML = `Create at ${x[i].at} by ${x[i].author}`;
+      notiDel.style.display = "flex";
+      notiCre.style.display = "none";
+      notiDel.addEventListener("click", function () {
+        removeText[i].remove();
+        notiDel.style.display = "none";
+        notiCre.style.display = "flex";
+        return;
+      });
+    });
+  }
 });
-
-//Create by 
-
