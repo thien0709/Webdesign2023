@@ -35,7 +35,9 @@ notiCre.addEventListener("click", function () {
     var newElement = `<div class="myNewDiv"> <div class="tittle">
 ${tittle.textContent}
   </div>
-  <div class="content">${x[i].content}</div>`;
+  <div class="content">${x[i].content}</div>
+  </div>
+  `;
   }
   notes.innerHTML += newElement;
   //Remove note

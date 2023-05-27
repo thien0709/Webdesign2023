@@ -82,6 +82,10 @@ body {
   border-radius: 1rem;
   padding: 1rem;
 }
+#status .notes{
+  height: 90%;
+  overflow: auto;
+}
 #note {
   position: relative;
   display: none;
@@ -129,8 +133,8 @@ body {
 }
 #note .text {
   margin: auto;
-  width: 70rem;
-  height: 5rem;
+  width: 95%;
+  height: auto;
   padding: 1rem;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -150,13 +154,17 @@ body {
   cursor: pointer;
 }
 .myNewDiv{
+  display: block;
   cursor: pointer;
   margin: auto;
   width: 90%;
   height: 5rem;
   background-color: var(--pink);
   overflow: hidden;
-  text-overflow: ellipsis;
+  padding: 1rem;
   margin-bottom: 2rem;
   border-radius: 5px;
+}
+.myNewDiv .content{
+  text-overflow: ellipsis;
 }
