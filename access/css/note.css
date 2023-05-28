@@ -86,20 +86,13 @@ body {
   height: 90%;
   overflow: auto;
 }
-#note {
-  position: relative;
-  display: none;
-  width: calc(100% - 20rem);
-  height: 100%;
-  background-color: var(--white);
-}
 .icon:hover {
   cursor: pointer;
   transform: scale(0.9);
   transition: linear 0.3s;
 }
 .icon:hover i {
-  animation: anim 2s infinite;
+  animation: anim 2s normal;
 }
 @keyframes anim {
   0% {
@@ -108,6 +101,13 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+#note {
+  position: relative;
+  display: none;
+  width: calc(100% - 20rem);
+  height: 100%;
+  background-color: var(--white);
 }
 #note .head {
   padding: 1rem;
